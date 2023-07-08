@@ -15,10 +15,10 @@
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', function () {
-        return view('home');
-    });
-    Route::get('/', function () {
-        return view('home');
-    });
+    Route::get('/home', 'HomeController@index');
+    Route::get('/', 'HomeController@index');
+
+
+    //Properties
+    Route::resource('/properties', 'PropertyController');
 });

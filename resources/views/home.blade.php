@@ -37,7 +37,7 @@
         <div class="col-lg-3">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Leases</h5>
+                    <h5>Active Tenants</h5>
                 </div>
                 <div class="ibox-content">
                     <h1 class="no-margins">31</h1>
@@ -183,8 +183,6 @@
 </div>
 @endsection
 @section('js')
-<script src="{{ asset('login_css/js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
-<script src="{{ asset('login_css/js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
 
 <!-- Flot -->
 <script src="{{ asset('login_css/js/plugins/flot/jquery.flot.js')}}"></script>
@@ -200,8 +198,7 @@
 <script src="{{ asset('login_css/js/demo/peity-demo.js')}}"></script>
 
 <!-- Custom and plugin javascript -->
-<script src="{{ asset('login_css/js/inspinia.js')}}"></script>
-<script src="{{ asset('login_css/js/plugins/pace/pace.min.js')}}"></script>
+
 
 <!-- jQuery UI -->
 <script src="{{ asset('login_css/js/plugins/jquery-ui/jquery-ui.min.js')}}"></script>

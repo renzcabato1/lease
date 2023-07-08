@@ -60,23 +60,23 @@
                         </div>  
                     </li>
                     <!-- //sidebar -->
-                    <li class="active">
+                    <li class="{{ Request::is('home') ? 'active' : '' }}">
                         <a href="{{url('/home')}}"><i class="fa fa-th-large"></i> <span
                                 class="nav-label">Dashboard</span></a>
                     </li>
-                    <li>
+                    <li class="{{ Request::is('prospects') ? 'active' : '' }}">
                         <a href="{{url('/prospects')}}"><i class="fa fa-users"></i></i> <span
                                 class="nav-label">Prospects</span></a>
                     </li>
-                    <li>
+                    <li class="{{ Request::is('tenants') ? 'active' : '' }}">
                         <a href="{{url('/tenants')}}"><i class="fa fa-user-plus"></i> <span
                                 class="nav-label">Tenants</span></a>
                     </li>
-                    <li>
+                    <li class="{{ Request::is('properties') ? 'active' : '' }}">
                         <a href="{{url('/properties')}}"><i class="fa fa-building"></i> <span
                                 class="nav-label">Properties</span></a>
                     </li>
-                    <li>
+                    <li class="{{ Request::is('commercial') || Request::is('residential') ? 'active' : '' }}">
                         <a href="#"><i class="fa fa-gavel"></i> <span class="nav-label">Leases</span><span
                                 class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
@@ -140,6 +140,11 @@
 
     <script src="{{ asset('login_css/js/jquery-3.1.1.min.js')}}"></script>
     <script src="{{ asset('login_css/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('login_css/js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
+    <script src="{{ asset('login_css/js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
+
+    <script src="{{ asset('login_css/js/inspinia.js')}}"></script>
+    <script src="{{ asset('login_css/js/plugins/pace/pace.min.js')}}"></script>
     @yield('js')
     <script>
           function show() {
