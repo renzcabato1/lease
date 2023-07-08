@@ -1,4 +1,7 @@
 @extends('layouts.header')
+@section('css')
+<link href="{{ asset('login_css/css/plugins/chosen/bootstrap-chosen.css') }}" rel="stylesheet">
+@endsection
 @section('content')
 
 <div class="wrapper wrapper-content">
@@ -48,65 +51,34 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Properties <a href='{{url('properties/create')}}'><button class="btn btn-success " type="button"><i class="fa fa-plus"></i>&nbsp;Add Property</button></a></h5>
+                    <h5>Properties <button class="btn btn-success "  data-target="#addProperty" data-toggle="modal" type="button"><i class="fa fa-plus"></i>&nbsp;Add Property</button></h5>
                   
                 </div>
                 <div class="ibox-content">
 
                     <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover dataTables-example" >
+                <table class="table table-striped table-bordered table-hover tables" >
                 <thead>
                 <tr>
                     <th>Property Code</th>
                     <th>Property Name</th>
+                    <th>Property Type</th>
                     <th>Location</th>
                     <th>Units</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="gradeX">
-                    <td>0001</td>
-                    <td>Victoria Sports 2</td>
-                    <td>Quezon City</td>
-                    <td class="center">60</td>
-                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                </tr>
-                <tr class="gradeC">
-                    <td>0002</td>
-                    <td>Victoria Sports Monumento</td>
-                    <td>Caloocan City</td>
-                    <td class="center">80</td>
-                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                </tr>
-                <tr class="gradeA">
-                    <td>0023</td>
-                    <td>Victoria de Morato</td>
-                    <td>Quezon City</td>
-                    <td class="center">80</td>
-                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                </tr>
-                <tr class="gradeA">
-                    <td>0343</td>
-                    <td>Victoria de Malate</td>
-                    <td>Manila City</td>
-                    <td class="center">80</td>
-                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                </tr>
-                <tr class="gradeA">
-                    <td>0001</td>
-                    <td>Victoria de Valenzuela</td>
-                    <td>Valenzuela City</td>
-                    <td class="center">120</td>
-                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                </tr>
-                <tr class="gradeA">
-                    <td>0001</td>
-                    <td>Victoria de Makati</td>
-                    <td>Makati City</td>
-                    <td class="center">100</td>
-                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                </tr>
+                    @foreach($properties as $property)
+                        <tr >
+                            <td>{{$property->code}}</td>
+                            <td>{{$property->name}}</td>
+                            <td>{{$property->type}}</td>
+                            <td>{{$property->location}}</td>
+                            <td>{{count($property->units)}}</td>
+                            <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                        </tr>
+                    @endforeach
                 </tbody>
                 </table>
                     </div>
@@ -117,12 +89,17 @@
 
     </div>
 </div>
+@include('properties.create')
 @endsection
 @section('js')
 <script src="{{ asset('login_css/js/plugins/dataTables/datatables.min.js')}}"></script>
+<script src="{{ asset('login_css/js/plugins/chosen/chosen.jquery.js') }}"></script>
 <script>
     $(document).ready(function(){
-        $('.dataTables-example').DataTable({
+        
+
+        $('.locations').chosen({width: "100%"});
+        $('.tables').DataTable({
             pageLength: 25,
             responsive: true,
             dom: '<"html5buttons"B>lTfgitp',

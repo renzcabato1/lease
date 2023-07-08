@@ -119,6 +119,9 @@
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
+                            <span class="m-r-sm text-muted welcome-message">Welcome to {{ config('app.name', 'Laravel') }}</span>
+                        </li>
+                        <li>
                             <a href="{{ route('logout') }}" onclick="logout(); show();">
                                 <i class="fa fa-sign-out"></i> Log out
                             </a>
@@ -137,7 +140,7 @@
             </div>
         </div>
     </div>
-
+    @include('sweetalert::alert')    
     <script src="{{ asset('login_css/js/jquery-3.1.1.min.js')}}"></script>
     <script src="{{ asset('login_css/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('login_css/js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
@@ -155,6 +158,7 @@
             event.preventDefault();
             document.getElementById('logout-form').submit();
         }
+
     </script>
 
 </body>

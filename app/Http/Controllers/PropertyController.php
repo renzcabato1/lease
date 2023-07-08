@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\unit;
+use App\Unit;
 use App\Property;
+use App\Location;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -16,13 +18,16 @@ class PropertyController extends Controller
     public function index()
     {
         //
-        $properties = Property::get();
+        $properties = Property::with('units')->get();
+        $locations = Location::get();
         $units = Unit::get();
         return view(
             'properties.index',
             array(
                 'properties' => $properties,
                 'units' => $units,
+                'locations' => $locations,
+
             )
         );
     }
@@ -46,6 +51,23 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'code' => 'unique:properties|required',
+            'name' => 'required',
+            'type' => 'required',
+            'location' => 'required',
+        ]);
+
+        $property = new Property;
+        $property->user_id = auth()->user()->id;
+        $property->code = $request->code;
+        $property->type = $request->type;
+        $property->location = $request->location;
+        $property->name = $request->name;
+        $property->save();
+
+        Alert::success('Successfully Save to Property')->persistent('Dismiss');
+        return back();
     }
 
     /**

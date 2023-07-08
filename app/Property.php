@@ -9,4 +9,9 @@ class Property extends Model implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
     //
+
+    public function units()
+    {
+        return $this->hasMany(Unit::class);
+    }
 }
