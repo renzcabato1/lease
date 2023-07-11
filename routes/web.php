@@ -21,4 +21,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Properties
     Route::resource('/properties', 'PropertyController');
+
+    Route::get('/properties', function () {
+        return view('properties');
+    });
+    Route::get('/tenants', function () {
+        return view('tenants/tenants');
+    });
 });

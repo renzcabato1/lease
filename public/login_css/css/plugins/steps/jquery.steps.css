@@ -90,12 +90,12 @@
     display: block;
     width: auto;
     margin: 0 0.5em 0.5em;
-    padding: 8px;
+    padding: 12px;
     text-decoration: none;
 
-    -webkit-border-radius: 5px;
+    /* -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 5px; */
 }
 
 .wizard > .steps .disabled a,
@@ -111,7 +111,7 @@
 .wizard > .steps .current a:hover,
 .wizard > .steps .current a:active
 {
-    background: #1AB394;
+    background: #292766;
     color: #fff;
     cursor: default;
 }
@@ -120,7 +120,7 @@
 .wizard > .steps .done a:hover,
 .wizard > .steps .done a:active
 {
-    background: #6fd1bd;
+    background: #008bfa;
     color: #fff;
 }
 
