@@ -40,7 +40,7 @@
     <div id="loader" style="display:none;" class="loader">
     </div>
     <div id="wrapper">
-        <nav class="navbar-default navbar-static-side" role="navigation">
+        <nav class="navbar-default navbar-static-side" role="navigation" style="margin-bottom: 0">
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
@@ -57,10 +57,11 @@
                         </div>
                         <div class="logo-element">
                             <img alt="image" class="img-circle" style='width:50px;' src="{{asset('images/no_image.png')}}" />
-                        </div>  
+                        </div>
                     </li>
                     <!-- //sidebar -->
-                    <li class="active">
+                    <li>
+                    {{-- <li class="active">     --}}
                         <a href="{{url('/home')}}"><i class="fa fa-th-large"></i> <span
                                 class="nav-label">Dashboard</span></a>
                     </li>
@@ -74,10 +75,10 @@
                     </li>
                     <li>
                         <a href="{{url('/properties')}}"><i class="fa fa-building"></i> <span
-                                class="nav-label">Properties</span></a>
+                                class="nav-label">Inventory</span></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-gavel"></i> <span class="nav-label">Leases</span><span
+                        <a href="#"><i class="fa fa-gavel"></i> <span class="nav-label">Contracts</span><span
                                 class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="{{url('/commercial')}}"><i class="fa fa-building"></i>Commercial</a></li>
@@ -90,11 +91,11 @@
                     </li>
                     <li>
                         <a href="invoices.html"><i class="fa fa-file-text-o"></i> <span
-                                class="nav-label">Invoices</span></a>
+                                class="nav-label">SOA/Billing</span></a>
                     </li>
                     <li>
                         <a href="payments.html"><i class="fa fa-credit-card"></i> <span
-                                class="nav-label">Payments</span></a>
+                                class="nav-label">Collection</span></a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-exclamation"></i> <span class="nav-label">Reports</span><span
@@ -142,7 +143,7 @@
     <script src="{{ asset('login_css/js/bootstrap.min.js')}}"></script>
     @yield('js')
     <script>
-          function show() {
+        function show() {
             document.getElementById("loader").style.display = "block";
         }
 
