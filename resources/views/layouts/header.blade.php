@@ -60,12 +60,7 @@
                         </div>
                     </li>
                     <!-- //sidebar -->
-<<<<<<< HEAD
                     <li class="{{ Request::is('home') ? 'active' : '' }}">
-=======
-                    <li>
-                    {{-- <li class="active">     --}}
->>>>>>> nesty
                         <a href="{{url('/home')}}"><i class="fa fa-th-large"></i> <span
                                 class="nav-label">Dashboard</span></a>
                     </li>
@@ -81,13 +76,8 @@
                         <a href="{{url('/properties')}}"><i class="fa fa-building"></i> <span
                                 class="nav-label">Inventory</span></a>
                     </li>
-<<<<<<< HEAD
                     <li class="{{ Request::is('commercial') || Request::is('residential') ? 'active' : '' }}">
-                        <a href="#"><i class="fa fa-gavel"></i> <span class="nav-label">Leases</span><span
-=======
-                    <li>
                         <a href="#"><i class="fa fa-gavel"></i> <span class="nav-label">Contracts</span><span
->>>>>>> nesty
                                 class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="{{url('/commercial')}}"><i class="fa fa-building"></i>Commercial</a></li>
@@ -150,7 +140,7 @@
             </div>
         </div>
     </div>
-    @include('sweetalert::alert')    
+    @include('sweetalert::alert')
     <script src="{{ asset('login_css/js/jquery-3.1.1.min.js')}}"></script>
     <script src="{{ asset('login_css/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('login_css/js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
