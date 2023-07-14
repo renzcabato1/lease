@@ -17,6 +17,7 @@
 
     <link href="{{ asset('login_css/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('login_css/css/style.css') }}" rel="stylesheet">
+
     @yield('css')
     <style>
         .loader {
@@ -57,7 +58,7 @@
                         </div>
                         <div class="logo-element">
                             <img alt="image" class="img-circle" style='width:50px;' src="{{asset('images/no_image.png')}}" />
-                        </div>  
+                        </div>
                     </li>
                     <!-- //sidebar -->
                     <li class="{{ Request::is('home') ? 'active' : '' }}">
@@ -74,10 +75,10 @@
                     </li>
                     <li class="{{ Request::is('properties') ? 'active' : '' }}">
                         <a href="{{url('/properties')}}"><i class="fa fa-building"></i> <span
-                                class="nav-label">Properties</span></a>
+                                class="nav-label">Inventory</span></a>
                     </li>
                     <li class="{{ Request::is('commercial') || Request::is('residential') ? 'active' : '' }}">
-                        <a href="#"><i class="fa fa-gavel"></i> <span class="nav-label">Leases</span><span
+                        <a href="#"><i class="fa fa-gavel"></i> <span class="nav-label">Contracts</span><span
                                 class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="{{url('/commercial')}}"><i class="fa fa-building"></i>Commercial</a></li>
@@ -90,11 +91,11 @@
                     </li>
                     <li>
                         <a href="invoices.html"><i class="fa fa-file-text-o"></i> <span
-                                class="nav-label">Invoices</span></a>
+                                class="nav-label">SOA / Billing</span></a>
                     </li>
                     <li>
                         <a href="payments.html"><i class="fa fa-credit-card"></i> <span
-                                class="nav-label">Payments</span></a>
+                                class="nav-label">Collection</span></a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-exclamation"></i> <span class="nav-label">Reports</span><span
@@ -102,8 +103,6 @@
                         <ul class="nav nav-second-level collapse">
                             <li><a href="#">Report 01</a></li>
                             <li><a href="#">Report 02</a></li>
-                            <li><a href="#">Report 03</a></li>
-                            <li><a href="#">Report 04</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -140,7 +139,7 @@
             </div>
         </div>
     </div>
-    @include('sweetalert::alert')    
+    @include('sweetalert::alert')
     <script src="{{ asset('login_css/js/jquery-3.1.1.min.js')}}"></script>
     <script src="{{ asset('login_css/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('login_css/js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>

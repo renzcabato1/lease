@@ -22,5 +22,6 @@ Route::group(['middleware' => 'auth'], function () {
     //Properties
     Route::resource('/properties', 'PropertyController');
     //Tenants
+    Route::get('/tenants/add', 'TenantController@showTenantAdd');
     Route::resource('/tenants', 'TenantController');
 });

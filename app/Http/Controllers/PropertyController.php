@@ -18,8 +18,8 @@ class PropertyController extends Controller
     public function index()
     {
         //
-        $properties = Property::with('units')->get();
-        $locations = Location::get();
+        $properties = Property::with('units')->orderBy('name')->get();
+        $locations = Location::orderBy('location', 'asc')->get();
         $units = Unit::get();
         return view(
             'properties.index',

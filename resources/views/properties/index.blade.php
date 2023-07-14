@@ -52,7 +52,7 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Properties <button class="btn btn-success "  data-target="#addProperty" data-toggle="modal" type="button"><i class="fa fa-plus"></i>&nbsp;Add Property</button></h5>
-                  
+
                 </div>
                 <div class="ibox-content">
 
@@ -96,7 +96,7 @@
 <script src="{{ asset('login_css/js/plugins/chosen/chosen.jquery.js') }}"></script>
 <script>
     $(document).ready(function(){
-        
+
 
         $('.locations').chosen({width: "100%"});
         $('.tables').DataTable({
