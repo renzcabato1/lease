@@ -39,8 +39,8 @@
                                             <td><span class="label label-primary">{{ $tenant->status }}</span></td>
                                             <div class="row">
                                             <td>
-                                                {{-- <a href="{{route('view')}}"><i class="fa fa-arrow-down"></i></a> --}}
-                                                {{-- <a data-toggle="modal" data-target="#modal-edit-tenants"><i class="fa fa-pencil"></i></a> --}}
+                                                <!-- {{-- <a href="{{route('view')}}"><i class="fa fa-arrow-down"></i></a> --}}
+                                                {{-- <a data-toggle="modal" data-target="#modal-edit-tenants"><i class="fa fa-pencil"></i></a> --}} -->
                                                 <a href="{{url('/tenants/'.$tenant->id)}}" data-toggle="view" data-target="#custumer-info"><i class="fa fa-user"></i></a>
                                                 <a data-toggle="modal" data-target="#modal-edit-tenants"><i class="fa fa-pencil"></i></a>
                                             </td>
