@@ -77,7 +77,7 @@
                                 <div class="col-md-6">
                                     <label>Personal Title</label>
                                     <input type="text" class="form-control" name="personal_title"
-                                        placeholder="Enter Personal Title" required/>
+                                        placeholder="Enter Personal Title" />
                                 </div>
                                 <div class="col-md-6">
                                     <label>First Name</label>
@@ -88,7 +88,7 @@
                                 <div class="col-md-6">
                                     <label>Middle Name</label>
                                     <input type="text" class="form-control" name="middle_name"
-                                        placeholder="Enter Middle Name" required/>
+                                        placeholder="Enter Middle Name (Optional)"/>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Last Name</label>
@@ -99,18 +99,18 @@
                                 <div class="col-md-6">
                                     <label>Personal Suffix</label>
                                     <input type="text" class="form-control" name="personal_suffix"
-                                        placeholder="Enter Personal Suffix" required>
+                                        placeholder="Enter Personal Suffix">
                                 </div>
                                 <div class="col-md-6">
                                     <label>Customer Group</label>
-                                    <input type="text" class="form-control" name="customer_group" placeholder="Enter Customer Group" required/>
+                                    <input type="text" class="form-control" name="customer_group" placeholder="Enter Customer Group" />
                                 </div>
                             </div>
                             <div class="row mb-10" style="margin-bottom: 20px;">
                                 <div class="col-md-6">
                                     <label>Classification Group</label>
                                     <input type="text" class="form-control" name="classification_group"
-                                        placeholder="Enter Classification Group" required/>
+                                        placeholder="Enter Classification Group" />
                                 </div>
                                 <div class="col-md-6">
                                     <label>TIN No.</label>
@@ -407,7 +407,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Language</label>
-                                    <input type="text" class="form-control" name="language" placeholder="Enter Language" required/>
+                                    <input type="text" class="form-control" name="language" placeholder="Enter Language" />
                                 </div>
                             </div>
                             <div class="row">
@@ -419,12 +419,77 @@
                                 <div class="col-md-6">
                                     <label>Company Name</label>
                                     <input type="text" class="form-control" name="company_name"
-                                        placeholder="Enter Enter Company Name" required/>
+                                        placeholder="Enter Company Name" required/>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Company Address</label>
                                     <input type="text" class="form-control" name="company_address"
                                         placeholder="Enter Company Address" required/>
+                                </div>
+                            </div>
+
+                            <div class="row mb-10" style="margin-bottom: 20px;">
+                                <div class="col-md-3">
+                                    <label>Name & Description</label>
+                                    <input type="text" class="form-control" name="address_desc"
+                                        placeholder="Enter Name & Description" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Address</label>
+                                    <input type="text" class="form-control" name="address"
+                                        placeholder="Enter Address" required/>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Purpose</label>
+                                    <input type="text" class="form-control" name="address_purpose"
+                                        placeholder="Enter Purpose" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Primary</label>
+                                    <select class="form-control m-b" name="address_primary" required>
+                                        <option>Select One</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-10" style="margin-bottom: 20px;">
+                                <div class="col-md-3">
+                                    <label>Contact Description</label>
+                                    <input type="text" class="form-control" name="contact_desc"
+                                        placeholder="Enter Contact Description" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Contact Type</label>
+                                    <input type="text" class="form-control" name="contact_type"
+                                        placeholder="Enter Contact Type" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Contact No.</label>
+                                    <input type="text" class="form-control" name="contact_no"
+                                        placeholder="Enter Contact No." required/>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Contact Address</label>
+                                    <input class="form-control m-b" name="contact_address"
+                                    placeholder="Enter Contact Address"  required/>
+                                </div>
+                            </div>
+
+                            <div class="row mb-10" style="margin-bottom: 20px;">
+                                <div class="col-md-3">
+                                    <label>Contact Extension</label>
+                                    <input type="text" class="form-control" name="contact_ext"
+                                        placeholder="Enter Contact Extension" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Primary</label>
+                                    <select class="form-control m-b" name="contact_primary" required>
+                                        <option>Select One</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -440,117 +505,4 @@
                 </div>
             </div>
 
-            {{-- /Add Customer Details --}}
-
-            <div class="modal" id="addAddress" tabindex="-1" role="dialog">
-                <div class="modal-dialog modal-sm " role="document">
-                    <div class="modal-content">
-                        <div style="padding: 35px; background-color:#6519C0">
-                            <div class='col-md-10'>
-                                <h3 style="color: #FFF">Add Address</h3>
-                            </div>
-                            <div class='col-md-2'>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true" style="color: #FFF"><i class="fa fa-times"
-                                            aria-hidden="true"></i></span>
-                                </button>
-                            </div>
-                        </div>
-                        <form method='post' action='{{ url('/tenants') }}' onsubmit='show();'
-                            enctype="multipart/form-data">
-                            <div class="modal-body">
-                                {{ csrf_field() }}
-                                <div class='row'>
-                                    <div class='col-md-12'>
-                                        Name or Description :
-                                        <input type="text" class="form-control-sm form-control " name="trade_name"
-                                            required />
-                                    </div>
-                                    <div class='col-md-12'>
-                                        Address :
-                                        <input type="text" class="form-control-sm form-control " name="company"
-                                            required />
-                                    </div>
-                                    <div class='col-md-12'>
-                                        Purpose :
-                                        <input type="text" class="form-control-sm form-control " name="category"
-                                            required />
-                                    </div>
-                                    <div class='col-md-12'>
-                                        Primary :
-                                        <input type="text" class="form-control-sm form-control " name="status"
-                                            required />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type='submit' class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         @endsection
-
-        {{-- /Add Personal Details --}}
-
-        <div class="modal" id="addContact" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-sm " role="document">
-                <div class="modal-content">
-                    <div style="padding: 35px; background-color:#000A96">
-                        <div class='col-md-10'>
-                            <h3 style="color: #FFF">Add Contact</h3>
-                        </div>
-                        <div class='col-md-2'>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" style="color: #FFF"><i class="fa fa-times"
-                                        aria-hidden="true"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <form method='post' action='{{ url('/tenants') }}' onsubmit='show();'
-                        enctype="multipart/form-data">
-                        <div class="modal-body">
-                            {{ csrf_field() }}
-                            <div class='row'>
-                                <div class='col-md-12'>
-                                    Description :
-                                    <input type="text" class="form-control-sm form-control " name="trade_name"
-                                        required />
-                                </div>
-                                <div class='col-md-12'>
-                                    Type :
-                                    <input type="text" class="form-control-sm form-control " name="company"
-                                        required />
-                                </div>
-                                <div class='col-md-12'>
-                                    Contact No. :
-                                    <input type="text" class="form-control-sm form-control " name="category"
-                                        required />
-                                </div>
-                                <div class='col-md-12'>
-                                    Address :
-                                    <input type="text" class="form-control-sm form-control " name="category"
-                                        required />
-                                </div>
-                                <div class='col-md-12'>
-                                    Extension :
-                                    <input type="text" class="form-control-sm form-control " name="status"
-                                        required />
-                                </div>
-                                <div class='col-md-12'>
-                                    Primary :
-                                    <input type="text" class="form-control-sm form-control " name="status"
-                                        required />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type='submit' class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>

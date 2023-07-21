@@ -11,71 +11,61 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class TenantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
         $tenants = Tenant::orderBy('trade_name')->get();
-        // dd($tenants);
         return view(
             'tenants.index',
             array(
                 'tenants' => $tenants,
-                // 'units' => $units,
-                // 'locations' => $locations,
-
             )
         );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view(
+            'tenants.create',
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
         $this->validate($request, [
-            // 'code' => 'unique:properties|required',
             'trade_name' => 'required',
             'company' => 'required',
             'category' => 'required',
             'status' => 'required',
-            'record_type' => 'required',
-            'personal_title' => 'required',
-            'first_name' =>'required',
-            'middle_name' =>'required',
-            'last_name' =>'required',
-            'personal_suffix' =>'required',
-            'customer_group' =>'required',
-            'classification_group' =>'required',
-            'tin_no' =>'required',
-            'gender' =>'required',
-            'marital_status' =>'required',
-            'age' =>'required',
-            'citizenship' =>'required',
-            'country' =>'required',
-            'language' =>'required',
-            'company_name' =>'required',
-            'company_address' =>'required',
+            'record_type',
+            'personal_title',
+            'first_name',
+            'middle_name',
+            'last_name',
+            'personal_suffix',
+            'customer_group',
+            'classification_group',
+            'tin_no',
+            'gender',
+            'marital_status',
+            'age',
+            'citizenship',
+            'country',
+            'language',
+            'company_name',
+            'company_address',
+            'address_desc',
+            'address',
+            'address_purpose',
+            'address_primary',
+            'contact_desc',
+            'contact_type',
+            'contact_no',
+            'contact_address',
+            'contact_ext',
+            'contact_primary',
 
         ]);
         try {
@@ -107,26 +97,31 @@ class TenantController extends Controller
             $tenant_details->language = $request->language;
             $tenant_details->company_name = $request->company_name;
             $tenant_details->company_address = $request->company_address;
+            $tenant_details->address_desc = $request->address_desc;
+            $tenant_details->address = $request->address;
+            $tenant_details->address_purpose = $request->address_purpose;
+            $tenant_details->address_primary = $request->address_primary;
+            $tenant_details->contact_desc = $request->contact_desc;
+            $tenant_details->contact_type = $request->contact_type;
+            $tenant_details->contact_no = $request->contact_no;
+            $tenant_details->contact_address = $request->contact_address;
+            $tenant_details->contact_ext = $request->contact_ext;
+            $tenant_details->contact_primary = $request->contact_primary;
+
             $tenant_details->save();
             DB::commit();
 
             Alert::success('Successfully Save to Tenants')->persistent('Dismiss');
-            return back();
+            return redirect('tenants');
         } catch(\Exception $e) {
             DB::rollback();
-            $error_description = 'Failed to insert task';
+            $error_description = 'Failed to Save to Tenants';
             $error_status = 1;
+            Alert::error($error_description);
             return back();
         }
 
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
@@ -136,72 +131,150 @@ class TenantController extends Controller
           })
         ->where('tenants.id',$id)
         ->orderBy('tenants.id')->get();
-        // $tenant_details = TenantDetails::findOrFail($id);
-        // $tenants_details = TenantDetails::where('tenant_id',$id)->orderBy('id')->get();
-        // $tenants = Tenant::select('*')->take(1)->get();
-        // dd($tenant);
         return view(
             'tenants.view',
         array(
             'tenants' => $tenants,
         )
         );
-        // dd('renz');
     }
 
-    public function showTenantAdd()
+    public function showUnit($id)
     {
-        //
-        // $tenant = Tenant::findOrFail($id);
-        // $tenants = Tenant::leftJoin('tenant_details', function($join) {
-        //     $join->on('tenants.id', '=', 'tenant_details.tenant_id');
-        //   })
-        // ->where('tenants.id',$id)
-        // ->orderBy('tenants.id')->get();
-        // $tenant_details = TenantDetails::findOrFail($id);
-        // $tenants_details = TenantDetails::where('tenant_id',$id)->orderBy('id')->get();
-        // $tenants = Tenant::select('*')->take(1)->get();
-        // dd($tenant);
+        $tenant = Tenant::findOrFail($id);
+        $tenants = Tenant::leftJoin('tenant_details', function($join) {
+            $join->on('tenants.id', '=', 'tenant_details.tenant_id');
+          })
+        ->where('tenants.id',$id)
+        ->orderBy('tenants.id')->get();
         return view(
-            'tenants.create',
-        // array(
-        //     'tenants' => $tenants,
-        // )
+            'tenants.view2',
+        array(
+            'tenants' => $tenants,
+        )
         );
-        // dd('renz');
+        // dd('nesty');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $tenant = Tenant::findOrFail($id);
+        $tenants = Tenant::leftJoin('tenant_details', function($join) {
+            $join->on('tenants.id', '=', 'tenant_details.tenant_id');
+          })
+        ->where('tenants.id',$id)
+        ->orderBy('tenants.id')->get();
+
+        return view('tenants.update', ['tenants' => $tenants]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'trade_name' => 'required',
+            'company' => 'required',
+            'category' => 'required',
+            'status' => 'required',
+            'record_type',
+            'personal_title',
+            'first_name',
+            'middle_name',
+            'last_name',
+            'personal_suffix',
+            'customer_group',
+            'classification_group',
+            'tin_no',
+            'gender',
+            'marital_status',
+            'age',
+            'citizenship',
+            'country',
+            'language',
+            'company_name',
+            'company_address',
+            'address_desc',
+            'address',
+            'address_purpose',
+            'address_primary',
+            'contact_desc',
+            'contact_type',
+            'contact_no',
+            'contact_address',
+            'contact_ext',
+            'contact_primary',
+
+        ]);
+        try {
+            DB::beginTransaction();
+            $tenant->trade_name = $request->trade_name;
+            $tenant->company = $request->company;
+            $tenant->category = $request->category;
+            $tenant->status = $request->status;
+            $tenant->save();
+
+            $tenant_details->tenant_id = $tenant->id;
+            $tenant_details->account_id = $request->account_id;
+            $tenant_details->record_type = $request->record_type;
+            $tenant_details->personal_title = $request->personal_title;
+            $tenant_details->first_name = $request->first_name;
+            $tenant_details->middle_name = $request->middle_name;
+            $tenant_details->last_name = $request->last_name;
+            $tenant_details->personal_suffix = $request->personal_suffix;
+            $tenant_details->customer_group = $request->customer_group;
+            $tenant_details->classification_group = $request->classification_group;
+            $tenant_details->tin_no = $request->tin_no;
+            $tenant_details->gender = $request->gender;
+            $tenant_details->marital_status = $request->marital_status;
+            $tenant_details->age = $request->age;
+            $tenant_details->citizenship = $request->citizenship;
+            $tenant_details->country = $request->country;
+            $tenant_details->language = $request->language;
+            $tenant_details->company_name = $request->company_name;
+            $tenant_details->company_address = $request->company_address;
+            $tenant_details->address_desc = $request->address_desc;
+            $tenant_details->address = $request->address;
+            $tenant_details->address_purpose = $request->address_purpose;
+            $tenant_details->address_primary = $request->address_primary;
+            $tenant_details->contact_desc = $request->contact_desc;
+            $tenant_details->contact_type = $request->contact_type;
+            $tenant_details->contact_no = $request->contact_no;
+            $tenant_details->contact_address = $request->contact_address;
+            $tenant_details->contact_ext = $request->contact_ext;
+            $tenant_details->contact_primary = $request->contact_primary;
+
+            $tenant_details->save();
+            DB::commit();
+
+            Alert::success('Successfully Updated to Tenants')->persistent('Dismiss');
+            return redirect('tenants');
+        } catch(\Exception $e) {
+            DB::rollback();
+            $error_description = 'Task Failed to Update';
+            $error_status = 1;
+            Alert::error($error_description);
+            return back();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        // Find the tenant by ID
+        $tenant = Tenant::findOrFail($id);
+
+        // Check if the tenant exists
+        if ($tenant) {
+        // Optional: Add any additional checks or validations here before deleting.
+
+        // Perform the deletion
+        $tenant->delete();
+
+        // Optionally, you might want to redirect to the index page with a success message
+        Alert::success('Successfully Deleted to Tenants')->persistent('Dismiss');
+        return redirect('tenants');
+            } else {
+        // Handle the case when the tenant with the given ID does not exist
+        return redirect()->route('tenants.index')->with('error', 'Tenant not found.');
+            }
     }
 }

@@ -13,10 +13,9 @@
                         <h3 style="color: #fff">Tenants &nbsp;
                             {{-- <button class="btn btn-success " data-target="#addProperty" data-toggle="modal"
                             type="button"><i class="fa fa-plus"></i>&nbsp;Add Tenants</button> --}}
-                            <a href="{{url('/tenants/add')}}"><button class="btn btn-success " type="button"><i class="fa fa-plus"></i>&nbsp;Add Tenant</button></a>
+                            <a href="{{url('/tenants/create')}}"><button class="btn btn-success " type="button"><i class="fa fa-plus"></i>&nbsp;Add Tenant</button></a>
                         </h3>
                     </div>
-
 
                     <div class="ibox-content">
                         <div class="table-responsive">
@@ -25,7 +24,7 @@
                                     <tr>
                                         <th>Trade Name</th>
                                         <th>Company</th>
-                                        <th>Category</th>
+                                        {{-- <th>Category</th> --}}
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
@@ -35,14 +34,14 @@
                                         <tr>
                                             <td>{{ $tenant->trade_name }}</td>
                                             <td>{{ $tenant->company }}</td>
-                                            <td>{{ $tenant->category }}</td>
+                                            {{-- <td>{{ $tenant->category }}</td> --}}
                                             <td><span class="label label-primary">{{ $tenant->status }}</span></td>
                                             <div class="row">
                                             <td>
-                                                {{-- <a href="{{route('view')}}"><i class="fa fa-arrow-down"></i></a> --}}
-                                                {{-- <a data-toggle="modal" data-target="#modal-edit-tenants"><i class="fa fa-pencil"></i></a> --}}
-                                                <a href="{{url('/tenants/'.$tenant->id)}}" data-toggle="view" data-target="#custumer-info"><i class="fa fa-user"></i></a>
-                                                <a data-toggle="modal" data-target="#modal-edit-tenants"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{url('/tenants/'.'view/'.$tenant->id)}}" data-toggle="tooltip" data-placement="top" title="View Tenant Details"><i class="fa fa-eye"></i></a>&nbsp;
+                                                <a href="{{url('/tenants/'.'edit/'.$tenant->id)}}" data-toggle="tooltip" data-placement="top" title="Edit Tenant Details"><i class="fa fa-edit"></i></a>
+                                                <a href="{{url('/tenants/'.'delete/'.$tenant->id)}}" data-toggle="tooltip" data-placement="top" title="Delete Tenant"><i class="fa fa-trash" style="color: #FF0000"></i></a>
+
                                             </td>
                                         </div>
                                         </tr>
@@ -57,7 +56,6 @@
 
         </div>
     </div>
-    {{-- @include('tenants.create') --}}
 
 @endsection
 @section('js')
@@ -90,10 +88,7 @@
                     }
                     }
                 ]
-
             });
-
         });
-
     </script>
 @endsection

@@ -77,6 +77,7 @@
                             <td>{{$property->location}}</td>
                             <td>{{count($property->units)}}</td>
                             <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                            {{-- <td><a href="{{url('/tenants/'.$tenant->id)}}"><i class="fa fa-eye"></i>&nbsp;VIEW</a></td> --}}
                         </tr>
                     @endforeach
                 </tbody>
