@@ -22,18 +22,18 @@
                                 <div class="col-md-6">
                                     <label>Trade Name</label>
                                     <input type="text" class="form-control" name="trade_name"
-                                        placeholder="Enter Trade Name" required />
+                                        placeholder="Enter Trade Name"  />
                                 </div>
                                 <div class="col-md-6">
                                     <label>Company</label>
                                     <input type="text" class="form-control" name="company" placeholder="Enter Company"
-                                        required />
+                                         />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Category</label>
-                                    <select class="form-control m-b" name="category" required>
+                                    <select class="form-control m-b" name="category" >
                                         <option>Select Category</option>
                                         <option>Food</option>
                                         <option>Wellness</option>
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Status</label>
-                                    <select class="form-control m-b" name="status" required>
+                                    <select class="form-control m-b" name="status" >
                                         <option>Select Status</option>
                                         <option>Active</option>
                                         <option>Inactive</option>
@@ -65,12 +65,12 @@
                                 <div class="col-md-6">
                                     <label>Account ID</label>
                                     <input type="text" class="form-control" name="account_id"
-                                        placeholder="Enter Account ID" required />
+                                        placeholder="Enter Account ID"  />
                                 </div>
                                 <div class="col-md-6">
                                     <label>Record Type</label>
                                     <input type="text" class="form-control" name="record_type" placeholder="Enter Record Type"
-                                        required />
+                                         />
                                 </div>
                             </div>
                             <div class="row mb-10" style="margin-bottom: 20px;">
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>First Name</label>
-                                    <input type="text" class="form-control" name="first_name" placeholder="Enter First Name" required/>
+                                    <input type="text" class="form-control" name="first_name" placeholder="Enter First Name" />
                                 </div>
                             </div>
                             <div class="row mb-10" style="margin-bottom: 20px;">
@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Last Name</label>
-                                    <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name" required/>
+                                    <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name" />
                                 </div>
                             </div>
                             <div class="row mb-10" style="margin-bottom: 20px;">
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>TIN No.</label>
-                                    <input type="text" class="form-control" name="tin_no" placeholder="Enter Tin No." required/>
+                                    <input type="text" class="form-control" name="tin_no" placeholder="Enter Tin No." />
                                 </div>
                             </div>
                             <div class="row">
@@ -125,7 +125,7 @@
                             <div class="row mb-10" style="margin-bottom: 20px;">
                                 <div class="col-md-6">
                                     <label>Gender</label>
-                                    <select class="form-control m-b" name="gender" required>
+                                    <select class="form-control m-b" name="gender" >
                                         <option>Select Gender</option>
                                         <option>Male</option>
                                         <option>Female</option>
@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Marital Status</label>
-                                    <select class="form-control m-b" name="marital_status" required>
+                                    <select class="form-control m-b" name="marital_status" >
                                         <option>Select Marital Status</option>
                                         <option>Single</option>
                                         <option>Married</option>
@@ -147,19 +147,18 @@
                             <div class="row mb-10" style="margin-bottom: 20px;">
                                 <div class="col-md-6">
                                     <label>Age</label>
-                                    <input type="date" class="form-control" name="age" placeholder="Enter Age" required/>
+                                    <input type="date" class="form-control" name="age" placeholder="Enter Age" />
                                 </div>
                                 <div class="col-md-6">
                                     <label>Citizenship</label>
                                     <input type="text" class="form-control" name="citizenship"
-                                        placeholder="Enter Citizenship" required/>
+                                        placeholder="Enter Citizenship" />
                                 </div>
                             </div>
                             <div class="row mb-10" style="margin-bottom: 20px;">
                                 <div class="col-md-6">
                                     <label>Country</label>
-                                    {{-- <input type="text" class="form-control" name="country" placeholder="Enter Country" required/> --}}
-                                    <select class="form-control m-b" name="country" required>
+                                    <select class="form-control m-b" name="country" >
                                         <option>Select Country</option>
                                         <option>Afghanistan</option>
                                         <option>Albania</option>
@@ -419,12 +418,12 @@
                                 <div class="col-md-6">
                                     <label>Company Name</label>
                                     <input type="text" class="form-control" name="company_name"
-                                        placeholder="Enter Company Name" required/>
+                                        placeholder="Enter Company Name" />
                                 </div>
                                 <div class="col-md-6">
                                     <label>Company Address</label>
                                     <input type="text" class="form-control" name="company_address"
-                                        placeholder="Enter Company Address" required/>
+                                        placeholder="Enter Company Address" />
                                 </div>
                             </div>
 
@@ -437,7 +436,7 @@
                                 <div class="col-md-3">
                                     <label>Address</label>
                                     <input type="text" class="form-control" name="address"
-                                        placeholder="Enter Address" required/>
+                                        placeholder="Enter Address" />
                                 </div>
                                 <div class="col-md-3">
                                     <label>Purpose</label>
@@ -446,7 +445,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label>Primary</label>
-                                    <select class="form-control m-b" name="address_primary" required>
+                                    <select class="form-control m-b" name="address_primary" >
                                         <option>Select One</option>
                                         <option>Yes</option>
                                         <option>No</option>
@@ -468,12 +467,12 @@
                                 <div class="col-md-3">
                                     <label>Contact No.</label>
                                     <input type="text" class="form-control" name="contact_no"
-                                        placeholder="Enter Contact No." required/>
+                                        placeholder="Enter Contact No." />
                                 </div>
                                 <div class="col-md-3">
                                     <label>Contact Address</label>
                                     <input class="form-control m-b" name="contact_address"
-                                    placeholder="Enter Contact Address"  required/>
+                                    placeholder="Enter Contact Address"  />
                                 </div>
                             </div>
 
@@ -485,11 +484,30 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label>Primary</label>
-                                    <select class="form-control m-b" name="contact_primary" required>
+                                    <select class="form-control m-b" name="contact_primary" >
                                         <option>Select One</option>
                                         <option>Yes</option>
                                         <option>No</option>
                                     </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4><u><b>Unit Information</b></u></h4>
+                                </div>
+                            </div>
+
+                            <div class="row mb-10" style="margin-bottom: 20px;">
+                                <div class="col-md-3">
+                                    <label>Prev. Unit</label>
+                                    <input type="text" class="form-control" name="prev_unit"
+                                        placeholder="Enter Prev. Unit" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label>New Unit</label>
+                                    <input type="text" class="form-control" name="new_unit"
+                                        placeholder="Enter New Unit" />
                                 </div>
                             </div>
 

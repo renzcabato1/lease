@@ -66,6 +66,17 @@ class TenantController extends Controller
             'contact_address',
             'contact_ext',
             'contact_primary',
+            'prev_unit',
+            'new_unit',
+            'space_type',
+            'area_size',
+            'current_start',
+            'current_end',
+            'rent',
+            'cusa',
+            'monthly_rent',
+            'monthly_cusa',
+
 
         ]);
         try {
@@ -107,6 +118,16 @@ class TenantController extends Controller
             $tenant_details->contact_address = $request->contact_address;
             $tenant_details->contact_ext = $request->contact_ext;
             $tenant_details->contact_primary = $request->contact_primary;
+            $tenant_details->prev_unit = $request->prev_unit;
+            $tenant_details->new_unit = $request->new_unit;
+            // $tenant_details->space_type = $request->space_type;
+            // $tenant_details->area_size = $request->area_size;
+            // $tenant_details->current_start = $request->current_start;
+            // $tenant_details->current_end = $request->current_end;
+            // $tenant_details->rent = $request->rent;
+            // $tenant_details->cusa = $request->cusa;
+            // $tenant_details->monthly_rent = $request->monthly_rent;
+            // $tenant_details->monthly_cusa = $request->monthly_cusa;
 
             $tenant_details->save();
             DB::commit();
@@ -259,21 +280,12 @@ class TenantController extends Controller
 
     public function destroy($id)
     {
-        // Find the tenant by ID
         $tenant = Tenant::findOrFail($id);
-
-        // Check if the tenant exists
         if ($tenant) {
-        // Optional: Add any additional checks or validations here before deleting.
-
-        // Perform the deletion
         $tenant->delete();
-
-        // Optionally, you might want to redirect to the index page with a success message
         Alert::success('Successfully Deleted to Tenants')->persistent('Dismiss');
         return redirect('tenants');
             } else {
-        // Handle the case when the tenant with the given ID does not exist
         return redirect()->route('tenants.index')->with('error', 'Tenant not found.');
             }
     }

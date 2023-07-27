@@ -335,7 +335,7 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td><a href="{{url('/tenants/'.'view/'.'units/'.$tenant->id)}}" data-toggle="tooltip" data-placement="top" title=" Tenant Unit Details"><i class="fa fa-eye"></i>&nbsp;VIEW</a></td>
+                                            <td><a href="{{url('/tenants/'.'view/'.'units/'.$tenant->tenant_id)}}" data-toggle="tooltip" data-placement="top" title=" Tenant Unit Details"><i class="fa fa-eye"></i>&nbsp;VIEW</a></td>
                                         </tr>
                                     </thead>
                                 </table>
