@@ -76,7 +76,7 @@
                             <td>{{$property->type}}</td>
                             <td>{{$property->location}}</td>
                             <td>{{count($property->units)}}</td>
-                            <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                            <td><a href="#" data-toggle="tooltip" data-placement="top" title="View Property Details"><i class="fa fa-eye"></i></a>&nbsp;</td>
                             {{-- <td><a href="{{url('/tenants/'.$tenant->id)}}"><i class="fa fa-eye"></i>&nbsp;VIEW</a></td> --}}
                         </tr>
                     @endforeach

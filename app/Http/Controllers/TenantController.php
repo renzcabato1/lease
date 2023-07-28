@@ -66,16 +66,16 @@ class TenantController extends Controller
             'contact_address',
             'contact_ext',
             'contact_primary',
-            'prev_unit',
-            'new_unit',
-            'space_type',
-            'area_size',
-            'current_start',
-            'current_end',
-            'rent',
-            'cusa',
-            'monthly_rent',
-            'monthly_cusa',
+            // 'prev_unit',
+            // 'new_unit',
+            // 'space_type',
+            // 'area_size',
+            // 'current_start',
+            // 'current_end',
+            // 'rent',
+            // 'cusa',
+            // 'monthly_rent',
+            // 'monthly_cusa',
 
 
         ]);
@@ -118,8 +118,8 @@ class TenantController extends Controller
             $tenant_details->contact_address = $request->contact_address;
             $tenant_details->contact_ext = $request->contact_ext;
             $tenant_details->contact_primary = $request->contact_primary;
-            $tenant_details->prev_unit = $request->prev_unit;
-            $tenant_details->new_unit = $request->new_unit;
+            // $tenant_details->prev_unit = $request->prev_unit;
+            // $tenant_details->new_unit = $request->new_unit;
             // $tenant_details->space_type = $request->space_type;
             // $tenant_details->area_size = $request->area_size;
             // $tenant_details->current_start = $request->current_start;
@@ -150,6 +150,8 @@ class TenantController extends Controller
         $tenants = Tenant::leftJoin('tenant_details', function($join) {
             $join->on('tenants.id', '=', 'tenant_details.tenant_id');
           })
+        ->leftJoin('unit_details', function($join) {
+            $join->on('tenants.id', '=', 'unit_details.tenant_id');})
         ->where('tenants.id',$id)
         ->orderBy('tenants.id')->get();
         return view(
@@ -166,6 +168,8 @@ class TenantController extends Controller
         $tenants = Tenant::leftJoin('tenant_details', function($join) {
             $join->on('tenants.id', '=', 'tenant_details.tenant_id');
           })
+          ->leftJoin('unit_details', function($join) {
+            $join->on('tenants.id', '=', 'unit_details.tenant_id');})
         ->where('tenants.id',$id)
         ->orderBy('tenants.id')->get();
         return view(

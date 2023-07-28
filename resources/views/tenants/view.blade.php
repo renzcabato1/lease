@@ -314,16 +314,6 @@
                                 <table class="table table-striped table-bordered table-hover tables">
                                     <thead>
                                         <tr>
-                                            {{-- <th>Prev Unit No.</th>
-                                            <th>New Unit No.</th>
-                                            <th>Space Type</th>
-                                            <th>Area Size</th>
-                                            <th>Current Start</th>
-                                            <th>Current End</th>
-                                            <th>Rent</th>
-                                            <th>CUSA</th>
-                                            <th>Monthly Rent</th>
-                                            <th>Monthly CUSA</th> --}}
                                             <th>Unit No.</th>
                                             <th>Property</th>
                                             <th>Space Type</th>
@@ -331,10 +321,10 @@
                                             <th>Action</th>
                                         </tr>
                                         <tr>
+                                            <td>{{ $tenant->unit_no }}</td>
                                             <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{ $tenant->space_type }}</td>
+                                            <td>{{ $tenant->area_size }}</td>
                                             <td><a href="{{url('/tenants/'.'view/'.'units/'.$tenant->tenant_id)}}" data-toggle="tooltip" data-placement="top" title=" Tenant Unit Details"><i class="fa fa-eye"></i>&nbsp;VIEW</a></td>
                                         </tr>
                                     </thead>
