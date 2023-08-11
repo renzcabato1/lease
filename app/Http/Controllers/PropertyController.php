@@ -5,57 +5,48 @@ namespace App\Http\Controllers;
 use App\Unit;
 use App\Property;
 use App\Location;
+use App\TenantDetails;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
+        $properties = Property::all();
         $properties = Property::with('units')->orderBy('name')->get();
         $locations = Location::orderBy('location', 'asc')->get();
         $units = Unit::get();
+        $tenants = Unit::leftJoin('tenant_details', 'units.tenant_id', '=', 'tenant_details.tenant_id')
+        ->select('units.*', 'tenant_details.*')
+        ->get();
+
         return view(
             'properties.index',
+            compact('properties', 'units', 'locations', 'tenants'),
             array(
                 'properties' => $properties,
                 'units' => $units,
                 'locations' => $locations,
-
+                'tenants' => $tenants,
             )
         );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+
         $this->validate($request, [
             'code' => 'unique:properties|required',
             'name' => 'required',
             'type' => 'required',
-            'location' => 'required',
+            'location',
         ]);
 
         $property = new Property;
@@ -70,48 +61,40 @@ class PropertyController extends Controller
         return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+
+    $property = Property::with('units')->findOrFail($id);
+
+    return view(
+        'properties.view',
+    array(
+        'properties' => $property,
+    )
+    );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        $property = Property::findOrFail($id);
+        if ($property) {
+        $property->delete();
+        Alert::success('Successfully Deleted to Properties')->persistent('Dismiss');
+        return redirect('properties');
+            } else {
+        return redirect()->route('properties.index')->with('error', 'Property not found.');
+            }
     }
 }

@@ -8,7 +8,6 @@ use OwenIt\Auditing\Contracts\Auditable;
 class Property extends Model implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
-    //
 
     public function units()
     {

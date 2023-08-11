@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="middle-box text-center loginscreen animated fadeInDown">
+<div class="middle-box text-center loginscreen animated fadeInDown" style="padding-top: 150px;">
     <div>
         <div>
             <img alt="image" class="img-main-logo" src="{{url('login_css/img/nsjbi_logo.png')}}" />
@@ -26,7 +26,7 @@
             <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
             <a href="{{ route('password.request') }}"><small>Forgot password?</small></a>
-          
+
         </form>
     </div>
 </div>

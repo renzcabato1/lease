@@ -19,14 +19,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'HomeController@index');
 
     //Properties
+    Route::get('/properties/delete/{id}', 'PropertyController@destroy');
+    Route::get('/properties/view/{id}', 'PropertyController@show');
     Route::resource('/properties', 'PropertyController');
+
+    Route::post('/units', 'UnitController@store')->name('units.store');
 
     //Tenants
     Route::get('/tenants/create', 'TenantController@create');
     Route::get('/tenants/delete/{id}', 'TenantController@destroy');
-    Route::get('/tenants/edit/{id}', 'TenantController@edit');
     Route::get('/tenants/view/{id}', 'TenantController@show');
-    Route::get('/tenants/view/units/{id}', 'TenantController@showUnit');
-    Route::put('/tenants/{id}', 'TenantController@update');
+    Route::get('/tenants/view/units/{id}', 'TenantController@showUnit')->name('tenants.view2');
     Route::resource('/tenants', 'TenantController');
+
 });

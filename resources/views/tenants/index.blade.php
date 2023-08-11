@@ -22,8 +22,8 @@
                             <table class="table table-striped table-bordered table-hover tables">
                                 <thead>
                                     <tr>
-                                        <th>Trade Name</th>
                                         <th>Company</th>
+                                        <th>Trade Name</th>
                                         {{-- <th>Category</th> --}}
                                         <th>Status</th>
                                         <th>Actions</th>
@@ -32,17 +32,16 @@
                                 <tbody>
                                     @foreach ($tenants as $tenant)
                                         <tr>
-                                            <td>{{ $tenant->trade_name }}</td>
                                             <td>{{ $tenant->company }}</td>
+                                            <td>{{ $tenant->trade_name }}</td>
                                             {{-- <td>{{ $tenant->category }}</td> --}}
                                             <td><span class="label label-primary">{{ $tenant->status }}</span></td>
                                             <div class="row">
                                             <td>
 
                                                 <a href="{{url('/tenants/'.'view/'.$tenant->id)}}" data-toggle="tooltip" data-placement="top" title="View Tenant Details"><i class="fa fa-eye"></i></a>&nbsp;
-                                                <a href="{{url('/tenants/'.'edit/'.$tenant->id)}}" data-toggle="tooltip" data-placement="top" title="Edit Tenant Details"><i class="fa fa-edit"></i></a>
-                                                <a href="{{url('/tenants/'.'delete/'.$tenant->id)}}" data-toggle="tooltip" data-placement="top" title="Delete Tenant"><i class="fa fa-trash" style="color: #FF0000"></i></a>
-
+                                                <a href="{{ route('tenants.edit', ['tenant' => $tenant->id]) }}" data-toggle="tooltip" data-placement="top" title="Edit Tenant Details"><i class="fa fa-edit"></i></a>
+                                                {{-- <a href="{{url('/tenants/'.'delete/'.$tenant->id)}}" data-toggle="tooltip" data-placement="top" title="Delete Tenant"><i class="fa fa-trash" style="color: #FF0000"></i></a> --}}
                                             </td>
                                         </div>
                                         </tr>

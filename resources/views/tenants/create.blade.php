@@ -422,26 +422,26 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Company Address</label>
-                                    <input type="text" class="form-control" name="company_address"
-                                        placeholder="Enter Company Address" />
+                                    <textarea type="text" class="form-control" name="company_address"
+                                        placeholder="Enter Company Address"></textarea>
                                 </div>
                             </div>
 
                             <div class="row mb-10" style="margin-bottom: 20px;">
                                 <div class="col-md-3">
                                     <label>Name & Description</label>
-                                    <input type="text" class="form-control" name="address_desc"
-                                        placeholder="Enter Name & Description" />
+                                    <textarea type="text" class="form-control" name="address_desc"
+                                        placeholder="Enter Name & Description"></textarea>
                                 </div>
                                 <div class="col-md-3">
                                     <label>Address</label>
-                                    <input type="text" class="form-control" name="address"
-                                        placeholder="Enter Address" />
+                                    <textarea type="text" class="form-control" name="address"
+                                        placeholder="Enter Address"></textarea>
                                 </div>
                                 <div class="col-md-3">
                                     <label>Purpose</label>
-                                    <input type="text" class="form-control" name="address_purpose"
-                                        placeholder="Enter Purpose" />
+                                    <textarea type="text" class="form-control" name="address_purpose"
+                                        placeholder="Enter Purpose"></textarea>
                                 </div>
                                 <div class="col-md-3">
                                     <label>Primary</label>
@@ -456,13 +456,20 @@
                             <div class="row mb-10" style="margin-bottom: 20px;">
                                 <div class="col-md-3">
                                     <label>Contact Description</label>
-                                    <input type="text" class="form-control" name="contact_desc"
-                                        placeholder="Enter Contact Description" />
+                                    <textarea type="text" class="form-control" name="contact_desc"
+                                        placeholder="Enter Contact Description"></textarea>
                                 </div>
                                 <div class="col-md-3">
                                     <label>Contact Type</label>
-                                    <input type="text" class="form-control" name="contact_type"
-                                        placeholder="Enter Contact Type" />
+                                    {{-- <input type="text" class="form-control" name="contact_type"
+                                        placeholder="Enter Contact Type" /> --}}
+                                        <select class="form-control m-b" name="contact_type" >
+                                            <option>Select Contact Type</option>
+                                            <option>Personal</option>
+                                            <option>Business</option>
+                                            <option>Work</option>
+                                            <option>Consultant</option>
+                                        </select>
                                 </div>
                                 <div class="col-md-3">
                                     <label>Contact No.</label>
@@ -471,8 +478,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label>Contact Address</label>
-                                    <input class="form-control m-b" name="contact_address"
-                                    placeholder="Enter Contact Address"  />
+                                    {{-- <input class="form-control m-b" name="contact_address"
+                                    placeholder="Enter Contact Address"  /> --}}
+                                    <textarea class="form-control" name="contact_address" placeholder="Enter Contact Address"></textarea>
                                 </div>
                             </div>
 

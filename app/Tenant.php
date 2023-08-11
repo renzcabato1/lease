@@ -9,4 +9,8 @@ class Tenant extends Model implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
 
+    public function unit()
+    {
+        return $this->hasMany(Unit::class);
+    }
 }

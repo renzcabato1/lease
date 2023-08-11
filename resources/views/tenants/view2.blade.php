@@ -24,19 +24,19 @@
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="item">
-                                        <img alt="image" class="img-responsive" src="http://127.0.0.1:8000/images/no_image4.png">
+                                        <img alt="image" class="img-responsive" src="http://127.0.0.1:8000/images/no_image1.png">
                                         <div class="carousel-caption">
                                             <p>Victoria Tower View-01</p>
                                         </div>
                                     </div>
                                     <div class="item">
-                                        <img alt="image" class="img-responsive" src="http://127.0.0.1:8000/images/no_image5.png">
+                                        <img alt="image" class="img-responsive" src="http://127.0.0.1:8000/images/no_image1.png">
                                         <div class="carousel-caption">
                                             <p>Victoria Tower View-02</p>
                                         </div>
                                     </div>
                                     <div class="item active">
-                                        <img alt="image" class="img-responsive" src="http://127.0.0.1:8000/images/no_image6.png">
+                                        <img alt="image" class="img-responsive" src="http://127.0.0.1:8000/images/no_image1.png">
                                         <div class="carousel-caption">
                                             <p>Victoria Tower View-03</p>
                                         </div>
@@ -57,44 +57,43 @@
     <div class="col-lg-6" style="padding-top: 50px;">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>Unit Information</h5>
+                <h5>Unit Details</h5>
             </div>
             <div>
                 <div class="ibox-content profile-content">
                     <h4><strong>{{ $tenant->trade_name }}</strong></h4>
-                    <p><i class="fa fa-map-marker"></i> {{ $tenant->address }}</p>
+                    {{-- <p><i class="fa fa-map-marker"></i> {{ $tenant->address }}</p> --}}
 
                     <table class="table medium m-b-xs">
                         <tbody>
                         <tr>
                             <td>
-                                <strong>Prev. Unit:</strong> B201
+                                <strong>Prev. Unit:</strong>{{ $tenant->prev_unit }}
                             </td>
                             <td>
-                                <strong>New Unit No.:</strong> B201
+                                <strong>New Unit No.:</strong>{{ $tenant->unit_no }}
                             </td>
 
                         </tr>
                         <tr>
                             <td>
-                                <strong>Space Type:</strong> Inline
+                                <strong>Space Type:</strong>{{ $tenant->space_type }}
                             </td>
                             <td>
-                                <strong>Area Size:</strong> 72.20
+                                <strong>Area Size:</strong>{{ $tenant->area_size }}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <strong>Unit Type:</strong> Commercial
+                            <strong>Property:</strong>
                             </td>
                             <td>
-                            <strong>Property:</strong> Victoria Towers
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                    
+
         </div>
     </div>
         </div>
@@ -103,7 +102,7 @@
             <div class="tabs-container">
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"><i
-                                class="fa fa-info-circle"></i>Unit Owner</a></li>
+                                class="fa fa-info-circle"></i>Lesee</a></li>
                     <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false"><i
                                 class="fa fa-building"></i>History</a></li>
                 </ul>
@@ -116,28 +115,25 @@
                         <tbody>
                         <tr>
                             <td>
-                                <strong>Project:</strong>
-                            </td>
-                            <td>
                                 <strong>Property:</strong>
                             </td>
-
-                        </tr>
-                        <tr>
                             <td>
                                 <strong>Trade Name:</strong> {{ $tenant->trade_name }}
                             </td>
-                            <td>
-                                <strong>Company:</strong> {{ $tenant->company }}
-                            </td>
-
                         </tr>
                         <tr>
                             <td>
-                                <strong>Category:</strong> {{ $tenant->category }}
+                                <strong>Company:</strong> {{ $tenant->company }}
                             </td>
                             <td>
+                                <strong>Category:</strong> {{ $tenant->category }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <strong>Status:</strong> {{ $tenant->status }}
+                            </td>
+                            <td>
                             </td>
                         </tr>
                         </tbody>
